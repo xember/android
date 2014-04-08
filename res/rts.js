@@ -327,7 +327,6 @@ var rts = {
         if (rts.bFallback) {
             $.post(rts.fallbackURLs.logoff, {
                 wsid: rts.sFallbackID
-                rts.system(false);
             });
         }
     },

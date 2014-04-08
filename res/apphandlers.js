@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
     /* disable copy past in application */
     document.documentElement.style.webkitTouchCallout = "none";
     document.documentElement.style.webkitUserSelect = "none";
@@ -64,11 +65,4 @@ $(document).ready(function() {
     function onResume() {
         rts.system(true);
     }
-
-    $("#test").click(function() {
-        rts.exit();
-    });
-    $("#test2").click(function() {
-        rts.system(true);
-    });
 }); /* end of document ready function */
