@@ -45,6 +45,7 @@ $(document).ready(function() {
         document.addEventListener("pause", onPause, false);
         document.addEventListener("backbutton", onBackKeyDown, false);
         document.addEventListener("menubutton", onMenuKeyDown, false);
+        document.addEventListener("resume", onResume, false);
     }
 
 
@@ -60,4 +61,14 @@ $(document).ready(function() {
         rts.exit();
     }
 
+    function onResume() {
+        rts.system(true);
+    }
+
+    $("#test").click(function() {
+        rts.exit();
+    });
+    $("#test2").click(function() {
+        rts.system(true);
+    });
 }); /* end of document ready function */
