@@ -42,7 +42,14 @@ $(document).ready(function() {
         document.addEventListener("pause", onPause, false);
     }
 
+
+    document.addEventListener("backbutton", onBackKeyDown, false);
+
     function onPause() {
+        rts.exit();
+    }
+
+    function onBackKeyDown() {
         rts.exit();
     }
 
