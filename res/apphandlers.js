@@ -58,7 +58,7 @@ $(document).ready(function() {
     }
 
     function onMenuKeyDown() {
-        rts.exit();
+        rts.system(true);
     }
 
     function onResume() {

@@ -230,7 +230,7 @@ var rts = {
             }
         }
         // refresh system variables every second (e.g. clock)
-        setInterval(rts.system, 1000);
+        setInterval(rts.system(true), 1000);
     },
     // set websocket url to other than default (or null to disable); optionally username and password can be set
     jws: function(jwsURL) {
@@ -321,11 +321,13 @@ var rts = {
             for (var i = 0; i < rts.jwsIdx.length; i++) {
                 rts.log("[exit] Closing websocket:" + i + " connection...");
                 rts.jwsClient[i].close();
+                rts.system(false);
             }
         }
         if (rts.bFallback) {
             $.post(rts.fallbackURLs.logoff, {
                 wsid: rts.sFallbackID
+                rts.system(false);
             });
         }
     },
@@ -431,7 +433,9 @@ var rts = {
             }
 
         } //end of 1st if	
-
+        else {
+            rts.log("rts.system turned off by application");
+        }
     },
     // Loop through all span/div elements and scan for html-data-element.
     action: function() {
