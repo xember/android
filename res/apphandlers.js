@@ -35,21 +35,28 @@ $(document).ready(function() {
     }, 500);
 
     /*phonegap eventlistner*/
+    function onLoad() {
+        document.addEventListener("deviceready", onDeviceReady, false);
+    }
 
     document.addEventListener("deviceready", onDeviceReady, false);
 
     function onDeviceReady() {
         document.addEventListener("pause", onPause, false);
+        document.addEventListener("backbutton", onBackKeyDown, false);
+        document.addEventListener("menubutton", onMenuKeyDown, false);
     }
 
-
-    document.addEventListener("backbutton", onBackKeyDown, false);
 
     function onPause() {
         rts.exit();
     }
 
     function onBackKeyDown() {
+        rts.exit();
+    }
+
+    function onMenuKeyDown() {
         rts.exit();
     }
 
