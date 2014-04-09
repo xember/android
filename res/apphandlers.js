@@ -92,4 +92,25 @@ $(document).ready(function() {
         });
     });
 
+    $(".rightmenu").hammer().on("dragright", {
+        drag_min_distance: -1,
+        drag_max_touches: 1
+    }, function(event) {
+        event.gesture.preventDefault();
+        $(".rightmenu").toggle("slide", {
+            direction: "right"
+        }, 250);
+        $("#rtb").toggle(function() {
+            $(".container").animate({
+                left: "-=14%",
+            }, 250);
+        }, function() {
+            $(".container").animate({
+                left: "+=14%",
+            }, 250);
+        });
+        event.gesture.stopDetect();
+    });
+
+
 }); /* end of document ready function */
