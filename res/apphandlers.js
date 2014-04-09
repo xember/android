@@ -76,25 +76,5 @@ $(document).ready(function() {
         $("#totab").text(totalabandoned);
     }, 100);
 
-    $("#rtb").click(function() {
-        $(".rightmenu").toggle("slide", {
-            direction: "right"
-        }, 500);
-    });
-
-
-    $("#rtb").toggle(function() {
-        $(".container").animate({
-            left: "-=14%",
-        }, 500);
-    }, function() {
-        $(".container").animate({
-            left: "+=14%",
-        }, 500);
-    });
-
-
-
-
 
 }); /* end of document ready function */
