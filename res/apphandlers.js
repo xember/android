@@ -76,41 +76,43 @@ $(document).ready(function() {
         $("#totab").text(totalabandoned);
     }, 100);
 
+
+
     $("#rtb").hammer().on("touch", function(event) {
         event.gesture.preventDefault();
-        $(".rightmenu").toggle("slide", {
-            direction: "right"
-        }, 250);
-        $("#rtb").toggle(function() {
+        $(this).toggleClass('open');
+        if ($(this).hasClass('open')) {
             $(".container").animate({
                 left: "-=14%",
             }, 250);
-        }, function() {
-            $(".container").animate({
-                left: "+=14%",
+            $(".rightmenu").animate({
+                right: "0%",
             }, 250);
-        });
+        } else {
+            $(".container").animate({
+                left: "0%",
+            }, 250);
+            $(".rightmenu").animate({
+                right: "-=14%",
+            }, 250);
+        }
     });
+
 
     $(".rightmenu").hammer().on("dragright", {
         drag_min_distance: -1,
         drag_max_touches: 1
     }, function(event) {
         event.gesture.preventDefault();
-        $(".rightmenu").toggle("slide", {
-            direction: "right"
+        $(".container").animate({
+            left: "0%",
         }, 250);
-        $("#rtb").toggle(function() {
-            $(".container").animate({
-                left: "-=14%",
-            }, 250);
-        }, function() {
-            $(".container").animate({
-                left: "+=14%",
-            }, 250);
-        });
+        $(".rightmenu").animate({
+            right: "-14%",
+        }, 250);
         event.gesture.stopDetect();
     });
+
 
 
 }); /* end of document ready function */
