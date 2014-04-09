@@ -92,8 +92,9 @@
 
         Otherwise, you can specify specific domains:
     -->
-    <access origin="ws://rts-demo.prime-contact.com:8888" />
+    
     <access origin="debug.phonegap.com" />
+    <access origin="95.211.111.91:8888" />
     
     
     <!--

@@ -74,7 +74,7 @@ $(document).ready(function() {
         $("#avwt").text(Math.round(totalwaiting / 7));
         var totalabandoned = parseInt($('body').data('stats')['ComplaintsEntered']);
         $("#totab").text(totalabandoned);
-    }, 500);
+    }, 100);
 
 
 }); /* end of document ready function */
