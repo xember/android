@@ -26,33 +26,34 @@
     
   <script type="text/javascript"> 
       rts.jws("ws://rts-demo.prime-contact.com:8888/jWebSocket/jWebSocket"); // this will initiate a websocket connection to our simulator
-      rts.object('site','simulator');   // this opens a connection to our simulator statistics
+      rts.object('site','watersupply');   // this opens a connection to our simulator statistics
   </script>
 
   <div class="container">
-    <div class="top">
-        <img class="counterimg" src="res/images/counter.png">
-    </div> <!-- end of div.top !-->
+    <div class="top"></div> <!-- end of div.top !-->
     <div class="middle">
       <div class="graphblock">
-          <svg class="gauge1"></svg>
+        <div class="lft">
+          <img class="smallgraph" src="res/images/smallgraph.png">
+          <span id="currwait" class="bigfig">- - -</span>
+        </div>
           <div class="wt">
             <span class="head">Total Waiting</span>
-            <span class="bluetxt">Total Abandoned</span>
-            <span class="bluetxt">Average Calls</span>
+            <span class="bluetxt">Total Abandoned</span><span id="totab" class="bigfig">- - -</span>
+            <div  class="break"></div>
+            <span class="bluetxt">Average Waiting</span><span id="avwt" class="bigfig">- - -</span>
           </div>
       </div>
       <div class="graphblock">
           <svg class="gauge1"></svg>
           <div class="wt">
             <span class="head">Waiting Time</span>
-            <span class="bluetxt">Longest Wait Times</span>
-            <span class="bluetxt">Average Wait Time</span>
+            <span class="bluetxt">Longest Wait Time</span><span id="totab" class="bigfig">- - -</span>
+            <div  class="break"></div>
+            <span class="bluetxt">Average Wait Time</span><span id="avwt" class="bigfig">- - -</span>
           </div>
       </div>
-    <div class="graphblock">
-      <img class="graphimg" src="res/images/slgraph.png">
-    </div>
+    <div id="graph1"class="graphblock"></div>
   </div> <!-- end of div.middle !-->
   <div class="bottom">
       <img class="notimg" src="res/images/notification.png">

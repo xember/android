@@ -55,14 +55,26 @@ $(document).ready(function() {
     }
 
     function onBackKeyDown() {
-        rts.exit();
+
     }
 
     function onMenuKeyDown() {
-        rts.system(true);
+
     }
 
     function onResume() {
         rts.system(true);
     }
+
+    //calculate total waiting calls
+
+    setInterval(function() {
+        var totalwaiting = parseInt($('body').data('stats')['RehousingWaiting']) + parseInt($('body').data('stats')['OutageWaiting']) + parseInt($('body').data('stats')['OtherWaiting']) + parseInt($('body').data('stats')['MeteringWaiting']) + parseInt($('body').data('stats')['InvoicesWaiting']) + parseInt($('body').data('stats')['ConnectionsWaiting']) + parseInt($('body').data('stats')['ComplaintsWaiting']);
+        $("#currwait").text(totalwaiting);
+        $("#avwt").text(Math.round(totalwaiting / 7));
+        var totalabandoned = parseInt($('body').data('stats')['ComplaintsEntered']);
+        $("#totab").text(totalabandoned);
+    }, 500);
+
+
 }); /* end of document ready function */

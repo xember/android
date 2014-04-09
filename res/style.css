@@ -20,14 +20,17 @@ html,body {
 @media all and (max-width: 100px) and (min-width: 10px) {
     .head {font-size: 10pt}
     .bluetxt {font-size: 8pt}
+    .bigfig {font-size: 16pt}
 }
 @media all and (max-width: 250px) and (min-width: 100px) {
     .head {font-size: 12pt}
     .bluetxt {font-size: 9pt}
+    .bigfig {font-size: 18pt}
 }
 @media all and (max-width: 360px) and (min-width: 250px) {
     .head {font-size: 14pt}
     .bluetxt {font-size: 10pt}
+    .bigfig {font-size: 20pt}
 }
 
 div.container {
@@ -37,8 +40,11 @@ div.container {
 }
 div.top {
     position: relative;
-    width: 100%; height: 33%;
+    width: 100%; height: 32.3%;
     background-color:#005ABB;
+    background-image: url("images/top.png");
+    background-repeat:no-repeat;
+    background-size:   cover; 
 }
 div.graphblock {
     position: relative;
@@ -47,11 +53,11 @@ div.graphblock {
     border-bottom: solid #005ABB 1px;
 }
 div.middle{
-    width: 100%; height: 60%;    
+    width: 100%; height: 61.45%;    
 }
 div.bottom {
     position: relative;
-    width: 100%; height: 7%;
+    width: 100%; height: 6.25%;
     background-color:#050F18;
 }
 svg.gauge1{
@@ -80,11 +86,12 @@ span.bluetxt{
     color: #005ABB;
     margin-left: 10%;
     margin-top: 7%;
+    float: left;
 }
-img.graphimg{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+div#graph1{
+    background-image: url("images/slgraph.png");
+    background-repeat:no-repeat;
+    background-size:   cover; 
 }
 img.notimg{
     position: relative;
@@ -93,10 +100,33 @@ img.notimg{
     margin-left: auto;
     margin-right: auto;
 }
-img.counterimg{
+img.smallgraph{
+    position: relative;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 10%;
+}
+div.lft{
+    float: left;
+    width: 39%;
+}
+span#currwait{
     position: relative;
     display: block;
-    top: 30%;
-    margin-left: auto;
-    margin-right: auto;
+    text-align: center;
+}
+span#totab{
+    position: relative;
+    float: right;
+    margin-right: 10%;
+    margin-top: 2%;
+}
+span#avwt{
+    position: relative;
+    float: right;
+    margin-right: 10%;
+    margin-top: 2%;
+}
+div.break{
+    clear:both;
 }
