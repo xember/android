@@ -154,4 +154,5 @@ div.touchbutton{
 div#rtb{
     position: absolute;
     right:0;
+    height: 100% !important;
 }
