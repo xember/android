@@ -55,11 +55,26 @@ $(document).ready(function() {
     }
 
     function onBackKeyDown() {
-
+        navigator.app.exitApp();
     }
 
     function onMenuKeyDown() {
-
+        $(this).toggleClass('open');
+        if ($(this).hasClass('open')) {
+            $(".container").animate({
+                left: "-=14%",
+            }, 250);
+            $(".rightmenu").animate({
+                right: "0%",
+            }, 250);
+        } else {
+            $(".container").animate({
+                left: "0%",
+            }, 250);
+            $(".rightmenu").animate({
+                right: "-=14%",
+            }, 250);
+        }
     }
 
     function onResume() {
