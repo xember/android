@@ -59,22 +59,12 @@ $(document).ready(function() {
     }
 
     function onMenuKeyDown() {
-        $(this).toggleClass('open');
-        if ($(this).hasClass('open')) {
-            $(".container").animate({
-                left: "-=14%",
-            }, 250);
-            $(".rightmenu").animate({
-                right: "0%",
-            }, 250);
-        } else {
-            $(".container").animate({
-                left: "0%",
-            }, 250);
-            $(".rightmenu").animate({
-                right: "-=14%",
-            }, 250);
-        }
+        $(".container").animate({
+            left: "-14%",
+        }, 250);
+        $(".rightmenu").animate({
+            right: "0%",
+        }, 250);
     }
 
     function onResume() {
@@ -98,17 +88,18 @@ $(document).ready(function() {
         $(this).toggleClass('open');
         if ($(this).hasClass('open')) {
             $(".container").animate({
-                left: "-=14%",
+                left: "-14%",
             }, 250);
             $(".rightmenu").animate({
                 right: "0%",
             }, 250);
+            console.log("rm 0% ; container -14%")
         } else {
             $(".container").animate({
                 left: "0%",
             }, 250);
             $(".rightmenu").animate({
-                right: "-=14%",
+                right: "-14%",
             }, 250);
         }
     });
