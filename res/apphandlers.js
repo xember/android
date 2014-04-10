@@ -59,12 +59,23 @@ $(document).ready(function() {
     }
 
     function onMenuKeyDown() {
-        $(".container").animate({
-            left: "-14%",
-        }, 250);
-        $(".rightmenu").animate({
-            right: "0%",
-        }, 250);
+        $(this).toggleClass('open');
+        if ($(this).hasClass('open')) {
+            $(".container").animate({
+                left: "-14%",
+            }, 250);
+            $(".rightmenu").animate({
+                right: "0%",
+            }, 250);
+            console.log("rm 0% ; container -14%")
+        } else {
+            $(".container").animate({
+                left: "0%",
+            }, 250);
+            $(".rightmenu").animate({
+                right: "-14%",
+            }, 250);
+        }
     }
 
     function onResume() {
