@@ -27,13 +27,6 @@ $(document).ready(function() {
         needleWidth: 3
     });
 
-    setInterval(function() {
-        if (typeof($('body').data('stats')) !== "undefined") {
-            if ($('body').data('stats').hasOwnProperty('RehousingLongestWaitTime')) {
-                chart.render($('body').data('stats')['RehousingLongestWaitTime']);
-            }
-        }
-    }, 500);
 
     /*phonegap eventlistner*/
     function onLoad() {
@@ -82,7 +75,7 @@ $(document).ready(function() {
         rts.system(true);
     }
 
-    //calculate total waiting calls
+    //Interval functions
 
     setInterval(function() {
         var totalwaiting = parseInt($('body').data('stats')['RehousingWaiting']) + parseInt($('body').data('stats')['OutageWaiting']) + parseInt($('body').data('stats')['OtherWaiting']) + parseInt($('body').data('stats')['MeteringWaiting']) + parseInt($('body').data('stats')['InvoicesWaiting']) + parseInt($('body').data('stats')['ConnectionsWaiting']) + parseInt($('body').data('stats')['ComplaintsWaiting']);
@@ -92,7 +85,15 @@ $(document).ready(function() {
         $("#totab").text(totalabandoned);
     }, 100);
 
+    setInterval(function() {
+        if (typeof($('body').data('stats')) !== "undefined") {
+            if ($('body').data('stats').hasOwnProperty('RehousingLongestWaitTime')) {
+                chart.render($('body').data('stats')['RehousingLongestWaitTime']);
+            }
+        }
+    }, 500);
 
+    //rightmenu handlers
 
     $("#rtb").hammer().on("touch", function(event) {
         event.gesture.preventDefault();
@@ -116,7 +117,7 @@ $(document).ready(function() {
     });
 
 
-    $(".rightmenu").hammer().on("dragright", {
+    $(".rightmenu, .sidespace").hammer().on("dragright", {
         drag_min_distance: -1,
         drag_max_touches: 1
     }, function(event) {
@@ -130,6 +131,38 @@ $(document).ready(function() {
         event.gesture.stopDetect();
     });
 
+    $(".sidespace").hammer().on("dragleft", {
+        drag_min_distance: -1,
+        drag_max_touches: 1
+    }, function(event) {
+        event.gesture.preventDefault();
+        $(".container").animate({
+            left: "-14%",
+        }, 250);
+        $(".rightmenu").animate({
+            right: "0%",
+        }, 250);
+        event.gesture.stopDetect();
+    });
+
+
+    //royal slider
+    $('.royalSlider').royalSlider({
+        autoHeight: false,
+        arrowsNav: false,
+        fadeinLoadedSlide: false,
+        controlNavigationSpacing: 0,
+        controlNavigation: 'none',
+        imageScaleMode: 'none',
+        imageAlignCenter: false,
+        loop: false,
+        loopRewind: true,
+        numImagesToPreload: 6,
+        keyboardNavEnabled: true,
+        usePreloader: false,
+        loop: true,
+        slidesSpacing: 0
+    });
 
 
 }); /* end of document ready function */

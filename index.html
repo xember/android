@@ -6,11 +6,14 @@
   <!-- stylesheets -->
   <link rel="stylesheet" type="text/css" href="res/rts.css"><!-- css with some preset styles used by rts.js -->
   <link rel="stylesheet" type="text/css" href="res/style.css">
+  <link href="res/royalslider/royalslider.css" rel="stylesheet">
+  <link href="res/royalslider/skins/default/rs-default.css" rel="stylesheet">
   <!-- javascript libaries-->
   <script type="text/javascript" src="res/jquery-1.8.3.min.js"></script>
   <script type="text/javascript" src="res/d3.v3.min.js"></script>
   <script type="text/javascript" src="res/jquery-ui-1.10.4.custom.min.js"></script>
   <script type="text/javascript" src="res/jquery.hammer-full.min.js"></script>
+  <script type="text/javascript" src="res/royalslider/jquery.royalslider.min.js"></script>
   <!-- d3js widgets -->
   <script type="text/javascript" src="res/widgets/d3arcSingle.js"></script>
   <script type="text/javascript" src="res/widgets/d3gauge1.js"></script>
@@ -29,32 +32,54 @@
       rts.object('site','watersupply');   // this opens a connection to our simulator statistics
   </script>
   <div class="rightmenu"></div>
+  <div class="sidespace"></div>
   <div id="rtb" class="touchbutton"></div>
   <div class="container">
     <div class="top"></div> <!-- end of div.top !-->
-    <div class="middle">
-      <div class="graphblock">
-        <div class="lft">
-          <img class="smallgraph" src="res/images/smallgraph.png">
-          <span id="currwait" class="bigfig">- - -</span>
-        </div>
-          <div class="wt">
-            <span class="head">Total Waiting</span>
-            <span class="bluetxt">Total Abandoned</span><span id="totab" class="bigfig">- - -</span>
-            <div  class="break"></div>
-            <span class="bluetxt">Average Waiting</span><span id="avwt" class="bigfig">- - -</span>
-          </div>
-      </div>
-      <div class="graphblock">
-          <svg class="gauge1"></svg>
-          <div class="wt">
-            <span class="head">Waiting Time</span>
-            <span class="bluetxt">Longest Wait Time</span><span id="totab" class="bigfig">- - -</span>
-            <div  class="break"></div>
-            <span class="bluetxt">Average Wait Time</span><span id="avwt" class="bigfig">- - -</span>
-          </div>
-      </div>
-    <div id="graph1"class="graphblock"></div>
+    <div class="middle royalSlider">
+      <div class="slide1">
+        <table class="slidetable">
+          <tr class ="graphblock">
+            <td class="firstcolumn">
+              <div class="lft">
+                <img class="smallgraph" src="res/images/smallgraph.png">
+                <span id="currwait" class="bigfig">- - -</span>
+              </div>
+            </td>
+            <td>
+              <div class="wt">
+                <span class="head">Total Waiting</span>
+                <span class="bluetxt">Total Abandoned</span><span id="totab" class="    bigfig">- - -</span>
+                <div  class="break"></div>
+                <span class="bluetxt">Average Waiting</span><span id="avwt" class="bigfig   ">- - -</span>
+              </div>
+            </td>
+          </tr>
+          <tr class ="graphblock">
+            <td><svg class="gauge1"></svg></td>
+            <td>
+              <div class="wt">
+                <span class="head">Waiting Time</span>
+                <span class="bluetxt">Longest Wait Time</span><span id="totab" class="bigfig">- - -</span>
+                <div  class="break"></div>
+                <span class="bluetxt">Average Wait Time</span><span id="avwt" class="bigfig">- - -</span>
+              </div>
+            </td>
+          </tr>
+          <tr class="graphblock" id="graph1">
+            <td colspan = "2">
+              <img src="res/images/slgraph.png" width="100%">
+            </td>
+          </tr>
+        </table>
+      </div> <!-- end of div.slide1 !-->
+
+
+
+
+  <div class="slide2">
+    <img src="res/images/slgraph.png" >
+  </div> <!-- end of div.slide2 !-->
   </div> <!-- end of div.middle !-->
   <div class="bottom">
       <img class="notimg" src="res/images/notification.png">

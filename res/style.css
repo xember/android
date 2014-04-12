@@ -20,17 +20,27 @@ html,body {
 @media all and (max-width: 100px) and (min-width: 10px) {
     .head {font-size: 10pt}
     .bluetxt {font-size: 8pt}
-    .bigfig {font-size: 16pt}
+    .bigfig {font-size: 14pt}
 }
-@media all and (max-width: 250px) and (min-width: 100px) {
+@media all and (max-width: 250px) and (min-width: 101px) {
     .head {font-size: 12pt}
     .bluetxt {font-size: 9pt}
-    .bigfig {font-size: 18pt}
+    .bigfig {font-size: 14pt}
 }
-@media all and (max-width: 360px) and (min-width: 250px) {
+@media all and (max-width: 360px) and (min-width: 251px) {
     .head {font-size: 14pt}
     .bluetxt {font-size: 10pt}
+    .bigfig {font-size: 18pt}
+}
+@media all and (max-width: 480px) and (min-width: 361px) {
+    .head {font-size: 16pt}
+    .bluetxt {font-size: 11pt}
     .bigfig {font-size: 20pt}
+}
+@media all and (max-width: 2000px) and (min-width: 481px) {
+    .head {font-size: 18pt}
+    .bluetxt {font-size: 12pt}
+    .bigfig {font-size: 24pt}
 }
 
 div.container {
@@ -59,15 +69,35 @@ div.top {
     background-repeat:no-repeat;
     background-size:   cover; 
 }
-div.graphblock {
+table.slidetable{
+    padding:0px;
+    margin: 0px;
+    width: 100%;
+    height: 100%;   
+}
+tr.graphblock{
+    padding:0px;
+    margin: 0px;
     position: relative;
     width: 100%; height: 33.3%;
     background-color:white;
     border-bottom: solid #005ABB 1px;
 }
+div.slide1{
+    height: inherit;
+    width: inherit;
+}
+tr#graph1{
+    border-bottom: 0px;
+}
+td.firstcolumn{
+    width:40%;
+}
+
 div.middle{
     width: 100%; height: 61.45%;    
 }
+
 div.bottom {
     position: relative;
     width: 100%; height: 6.25%;
@@ -76,15 +106,7 @@ div.bottom {
 svg.gauge1{
     position: relative;
     margin-top: 3%;
-    margin-left: 5%;
-    width: 33%;
-    float: left;
-}
-div.wt{
-    position: relative;
-    float: left;
-    height: 100%;
-    width: 61%;
+    margin-left: 8%;
 }
 span.head{
     position: relative;
@@ -101,11 +123,6 @@ span.bluetxt{
     margin-top: 7%;
     float: left;
 }
-div#graph1{
-    background-image: url("images/slgraph.png");
-    background-repeat:no-repeat;
-    background-size:   cover; 
-}
 img.notimg{
     position: relative;
     display: block;
@@ -118,10 +135,6 @@ img.smallgraph{
     width: 80%;
     margin-left: 10%;
     margin-top: 10%;
-}
-div.lft{
-    float: left;
-    width: 39%;
 }
 span#currwait{
     position: relative;
@@ -152,4 +165,18 @@ div.touchbutton{
 div#rtb{
     position: absolute;
     right:0;
+}
+div.sidespace{
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    right: 0;
+    top: 9%;
+    height: 100%;
+    width: 20%;
+    z-index: 7; 
+    background-color: transparent;   
+}
+div#test{
+
 }
