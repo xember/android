@@ -43,15 +43,17 @@
             <td class="firstcolumn">
               <div class="lft">
                 <img class="smallgraph" src="res/images/smallgraph.png">
-                <span id="currwait" class="bigfig">- - -</span>
+                <span class="bigfig currwait">- - -</span>
               </div>
             </td>
             <td>
               <div class="wt">
                 <span class="head">Total Waiting</span>
-                <span class="bluetxt">Total Abandoned</span><span id="totab" class="    bigfig">- - -</span>
+                <span class="bluetxt">Total Abandoned</span>
+                <span id="totab" class="bigfig">- - -</span>
                 <div  class="break"></div>
-                <span class="bluetxt">Average Waiting</span><span id="avwt" class="bigfig   ">- - -</span>
+                <span class="bluetxt">Average Waiting</span>
+                <span class="bigfig avwt">- - -</span>
               </div>
             </td>
           </tr>
@@ -60,9 +62,11 @@
             <td>
               <div class="wt">
                 <span class="head">Waiting Time</span>
-                <span class="bluetxt">Longest Wait Time</span><span id="totab" class="bigfig">- - -</span>
+                <span class="bluetxt">Longest Wait Time</span>
+                <span id="totab" class="bigfig">- - -</span>
                 <div  class="break"></div>
-                <span class="bluetxt">Average Wait Time</span><span id="avwt" class="bigfig">- - -</span>
+                <span class="bluetxt">Average Wait Time</span>
+                <span class="bigfig avwt">- - -</span>
               </div>
             </td>
           </tr>
@@ -79,16 +83,34 @@
       <tr class ="graphblock">
         <td>
           <div class="barcontainer">
-            <svg id="bar1"></svg>
-            <img class="icons" src="res/images/icons.png" width="45%">
+            <div class="bcl">
+              <svg id="bar1"></svg>
+              <img class="icons" src="res/images/icons.png">
+            </div>
+            <div class="bcr">
+              <span id="totalwaiting" class="bigfig currwait seccurrwait">- - -</span>
+              <img id="good" src="res/images/good.png">
+              <img id="bad" src="res/images/bad.png">
+              <span class="bluetxt seccurrwaittxt">Total</span>
+              <span class="bigfig avwt secavwt">- - -</span>
+              <span class="bluetxt secavwttxt">Average</span>
+            </div>
           </div>
         </td>
       </tr>
       <tr class ="graphblock">
         <td>
           <div class="barcontainer">
-            <svg id="bar2"></svg>
-            <img class="icons" src="res/images/icons.png" width="45%">
+            <div class="bcl">
+              <svg id="bar2"></svg>
+              <img class="icons" src="res/images/icons.png">
+            </div>
+            <div class="bcr">
+              <span class="bigfig currwait seccurrwait">- - -</span>
+              <span class="bluetxt seccurrwaittxt">Total</span>
+              <span class="bigfig avwt secavwt">- - -</span>
+              <span class="bluetxt secavwttxt">Average</span>
+            </div>
           </div>
         </td>
       </tr>

@@ -78,9 +78,19 @@ $(document).ready(function() {
     //Interval functions
 
     setInterval(function() {
+        var pasttotalwaiting = parseInt($("#totalwaiting").text());
         var totalwaiting = parseInt($('body').data('stats')['RehousingWaiting']) + parseInt($('body').data('stats')['OutageWaiting']) + parseInt($('body').data('stats')['OtherWaiting']) + parseInt($('body').data('stats')['MeteringWaiting']) + parseInt($('body').data('stats')['InvoicesWaiting']) + parseInt($('body').data('stats')['ConnectionsWaiting']) + parseInt($('body').data('stats')['ComplaintsWaiting']);
-        $("#currwait").text(totalwaiting);
-        $("#avwt").text(Math.round(totalwaiting / 7));
+
+        if (parseInt(totalwaiting) > parseInt(pasttotalwaiting)) {
+            $("#bad").hide();
+            $("#good").show();
+        } else if (parseInt(totalwaiting) == parseInt(pasttotalwaiting)) {} else {
+            $("#bad").show();
+            $("#good").hide();
+        }
+
+        $(".currwait").text(totalwaiting);
+        $(".avwt").text(Math.round(totalwaiting / 7));
         var totalabandoned = parseInt($('body').data('stats')['ComplaintsEntered']);
         $("#totab").text(totalabandoned);
     }, 100);
@@ -177,11 +187,11 @@ $(document).ready(function() {
         duration: 750,
         bgWidth: 30,
         bgColor: "lightblue",
-        bgbarWidth: ($(".graphblock").width() / 100) * 2.4,
+        bgbarWidth: ($(".graphblock").width() / 100) * 2.7,
         barColor: "#0066AE",
         barRounding: 3,
-        barWidth: ($(".graphblock").width() / 100) * 2.4,
-        spacer: 14
+        barWidth: ($(".graphblock").width() / 100) * 2.7,
+        spacer: ($(".graphblock").width() / 100) * 4.7
     });
 
 
@@ -194,11 +204,11 @@ $(document).ready(function() {
         duration: 750,
         bgWidth: 30,
         bgColor: "lightblue",
-        bgbarWidth: ($(".graphblock").width() / 100) * 2.4,
+        bgbarWidth: ($(".graphblock").width() / 100) * 2.7,
         barColor: "#0066AE",
         barRounding: 3,
-        barWidth: ($(".graphblock").width() / 100) * 2.4,
-        spacer: 14
+        barWidth: ($(".graphblock").width() / 100) * 2.7,
+        spacer: ($(".graphblock").width() / 100) * 4.7
     });
 
     setInterval(function() {
