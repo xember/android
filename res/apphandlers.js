@@ -164,5 +164,55 @@ $(document).ready(function() {
         slidesSpacing: 0
     });
 
+    //get INITIAL middleheigt for determain table element heights
+    $(window).trigger('resize');
+
+    //barcharts
+    var bar1 = d3BarChart("#bar1", {
+        height: $(".graphblock").height() * .5,
+        width: $(".graphblock").width() * .5,
+        threshold: [12, 23, 16, 39, 24, 49, 32],
+        thresholdcolor: "#F9631C",
+        thresholdwidth: 1,
+        duration: 750,
+        bgWidth: 30,
+        bgColor: "lightblue",
+        bgbarWidth: ($(".graphblock").width() / 100) * 2.4,
+        barColor: "#0066AE",
+        barRounding: 3,
+        barWidth: ($(".graphblock").width() / 100) * 2.4,
+        spacer: 14
+    });
+
+
+    var bar2 = d3BarChart("#bar2", {
+        height: $(".graphblock").height() * .5,
+        width: $(".graphblock").width() * .5,
+        threshold: [12, 23, 16, 39, 24, 49, 32],
+        thresholdcolor: "#F9631C",
+        thresholdwidth: 1,
+        duration: 750,
+        bgWidth: 30,
+        bgColor: "lightblue",
+        bgbarWidth: ($(".graphblock").width() / 100) * 2.4,
+        barColor: "#0066AE",
+        barRounding: 3,
+        barWidth: ($(".graphblock").width() / 100) * 2.4,
+        spacer: 14
+    });
+
+    setInterval(function() {
+        bar1.render([parseInt($('body').data('stats')['RehousingWaiting']), parseInt($('body').data('stats')['OutageWaiting']), parseInt($('body').data('stats')['OtherWaiting']), parseInt($('body').data('stats')['MeteringWaiting']), parseInt($('body').data('stats')['InvoicesWaiting']), parseInt($('body').data('stats')['ConnectionsWaiting']), parseInt($('body').data('stats')['ComplaintsWaiting'])]);
+        bar2.render([parseInt($('body').data('stats')['RehousingWaiting']), parseInt($('body').data('stats')['OutageWaiting']), parseInt($('body').data('stats')['OtherWaiting']), parseInt($('body').data('stats')['MeteringWaiting']), parseInt($('body').data('stats')['InvoicesWaiting']), parseInt($('body').data('stats')['ConnectionsWaiting']), parseInt($('body').data('stats')['ComplaintsWaiting'])]);
+    }, 1000);
+
 
 }); /* end of document ready function */
+
+//get RESIZE middleheigt for determain table element heights
+
+$(window).on('resize', function() {
+    var middleheight = $(".middle").height();
+    $(".slidetable").height(middleheight);
+    $(".graphblock").height(middleheight / 3);
+});
