@@ -78,8 +78,10 @@ $(document).ready(function() {
     //Interval functions
 
     setInterval(function() {
+        var randomNumber = randomNumberRange(1, 6);
+
         var pasttotalwaiting = parseInt($("#totalwaiting").text());
-        var totalwaiting = parseInt($('body').data('stats')['RehousingWaiting']) + parseInt($('body').data('stats')['OutageWaiting']) + parseInt($('body').data('stats')['OtherWaiting']) + parseInt($('body').data('stats')['MeteringWaiting']) + parseInt($('body').data('stats')['InvoicesWaiting']) + parseInt($('body').data('stats')['ConnectionsWaiting']) + parseInt($('body').data('stats')['ComplaintsWaiting']);
+        var totalwaiting = 109 + randomNumber;
 
         if (parseInt(totalwaiting) > parseInt(pasttotalwaiting)) {
             $("#bad").hide();
@@ -91,17 +93,36 @@ $(document).ready(function() {
 
         $(".currwait").text(totalwaiting);
         $(".avwt").text(Math.round(totalwaiting / 7));
-        var totalabandoned = parseInt($('body').data('stats')['ComplaintsEntered']);
+        var totalabandoned = Math.floor(parseInt($("#totab").text()) + randomNumberRange(0, 1));
         $("#totab").text(totalabandoned);
-    }, 100);
+
+        $("#longestwt").text(convertToTime(randomNumberRange(200, 230)));
+        $("#averagewt").text(convertToTime(randomNumberRange(35, 40)));
+    }, 3000);
+
+    function randomNumberRange(min, max) {
+        return Math.floor(Math.random() * (max - min + 1) + min);
+    }
+
+    function convertToTime(s) {
+        // convert seconds to hh:mm:ss or mm:ss format
+        var d = Number(s);
+        var h = Math.floor(d / 3600);
+        var m = Math.floor(d % 3600 / 60);
+        var s = Math.floor(d % 3600 % 60);
+        if (d > 0) {
+            return ((h > 0) ? h + ":" : "") + m + ":" + ((s < 10) ? "0" : "") + s;
+        } else {
+            return "0:00";
+        }
+    }
+
+    chart.render(29);
 
     setInterval(function() {
-        if (typeof($('body').data('stats')) !== "undefined") {
-            if ($('body').data('stats').hasOwnProperty('RehousingLongestWaitTime')) {
-                chart.render($('body').data('stats')['RehousingLongestWaitTime']);
-            }
-        }
-    }, 500);
+        var randomNumber = randomNumberRange(20, 37);
+        chart.render(randomNumber);
+    }, 5000);
 
     //rightmenu handlers
 
@@ -212,9 +233,9 @@ $(document).ready(function() {
     });
 
     setInterval(function() {
-        bar1.render([parseInt($('body').data('stats')['RehousingWaiting']), parseInt($('body').data('stats')['OutageWaiting']), parseInt($('body').data('stats')['OtherWaiting']), parseInt($('body').data('stats')['MeteringWaiting']), parseInt($('body').data('stats')['InvoicesWaiting']), parseInt($('body').data('stats')['ConnectionsWaiting']), parseInt($('body').data('stats')['ComplaintsWaiting'])]);
-        bar2.render([parseInt($('body').data('stats')['RehousingWaiting']), parseInt($('body').data('stats')['OutageWaiting']), parseInt($('body').data('stats')['OtherWaiting']), parseInt($('body').data('stats')['MeteringWaiting']), parseInt($('body').data('stats')['InvoicesWaiting']), parseInt($('body').data('stats')['ConnectionsWaiting']), parseInt($('body').data('stats')['ComplaintsWaiting'])]);
-    }, 1000);
+        bar1.render([randomNumberRange(10, 50), randomNumberRange(30, 60), randomNumberRange(40, 50), randomNumberRange(30, 40), randomNumberRange(40, 60), randomNumberRange(10, 20), randomNumberRange(30, 60)]);
+        bar2.render([randomNumberRange(10, 50), randomNumberRange(30, 60), randomNumberRange(40, 50), randomNumberRange(20, 40), randomNumberRange(40, 60), randomNumberRange(30, 40), randomNumberRange(30, 60)]);
+    }, 3000);
 
 
 }); /* end of document ready function */

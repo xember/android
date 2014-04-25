@@ -227,3 +227,15 @@ div.sidespace{
     top: 8%;
     right: 3%;
 }
+#longestwt{
+    position: relative;
+    float: right;
+    margin-right: 10%;
+    margin-top: 2%;
+}
+#averagewt{
+    position: relative;
+    float: right;
+    margin-right: 10%;
+    margin-top: 3%;
+}

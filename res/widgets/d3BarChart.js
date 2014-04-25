@@ -24,10 +24,6 @@
 */
 function d3BarChart(selector, custom) {
     // basic checks
-    if (typeof(d3) !== "object" || typeof(rts) !== "object") {
-        alert("d3BarChart needs both D3 and RTS!");
-        return false;
-    }
     // check if selector is filled
     if (selector === null) {
         alert("selector is mandatory!");
