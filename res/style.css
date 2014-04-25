@@ -124,11 +124,7 @@ span.bluetxt{
     float: left;
 }
 img.notimg{
-    position: relative;
-    display: block;
-    top: 10%;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
 }
 img.smallgraph{
     position: relative;
@@ -238,4 +234,8 @@ div.sidespace{
     float: right;
     margin-right: 10%;
     margin-top: 3%;
+}
+#ajustment {
+    float: right;
+    margin-right: 25%;
 }
